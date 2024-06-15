@@ -1,0 +1,36 @@
+﻿ @model IEnumerable<MyTasks.Models.Task>
+
+@{
+    ViewData["Title"] = "Главная - Администратор";
+}
+
+<h1>Добро пожаловать, @User.Identity.Name</h1>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Краткий список задач</h3>
+    <div>
+        <a class="btn btn-primary me-2" asp-action="Users">Пользователи</a>
+        <a class="btn btn-primary me-2" asp-action="Tasks">Задачи</a>
+        <a class="btn btn-primary" asp-action="Reports">Отчеты</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Срок</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.DueDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

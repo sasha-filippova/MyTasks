@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MyTasks.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "User List";
+}
+
+<h2>Пользователи</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create">Добавить пользователя</a>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MyTasks.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Управление пользователями";
+}
+
+<h1>Пользователи</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Логин</th>
+            <th>Email</th>
+            <th>Роль</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+﻿@model MyTasks.Models.TaskAssignment
+
+@{
+    ViewData["Title"] = "Назначить задачу";
+}
+
+<h1>Назначить задачу</h1>
+
+<form asp-action="AssignTask" method="post">
+    <div class="form-group">
+        <label asp-for="TaskId">Задача</label>
+        <select asp-for="TaskId" class="form-control" asp-items="@(new SelectList(ViewBag.Tasks, "Id", "Title"))"></select>
+        <span asp-validation-for="TaskId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserId">Пользователь</label>
+        <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(ViewBag.Users, "Id", "UserName"))"></select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AssignedDate">Дата назначения</label>
+        <input asp-for="AssignedDate" class="form-control" />
+        <span asp-validation-for="AssignedDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Назначить</button>
+</form>

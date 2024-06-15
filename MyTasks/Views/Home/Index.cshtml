@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Добро пожаловать, @ViewBag.UserName!</h2>
+
+<h3>Краткий список задач</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Срок</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in ViewBag.Tasks)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.DueDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
